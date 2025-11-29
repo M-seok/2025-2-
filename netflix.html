@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>Neflix Mini - 나만의 넷플릭스</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#141414; color:white; font-family:'Helvetica Neue',Helvetica,Arial,sans-serif; overflow-x:hidden; }
+  .header { background: linear-gradient(to bottom,rgba(0,0,0,.8) 0,rgba(0,0,0,0) 100%); padding:20px 4%; position:fixed; width:100%; z-index:10; transition:.4s; }
+  .header.scrolled { background:#141414; }
+  .logo { font-size:2.5rem; font-weight:900; letter-spacing:-2px; }
+  .logo span { color:#e50914; }
+  .main { padding-top: 200px; text-align:center; }
+  .title { font-size:5vw; font-weight:900; margin-bottom:20px; text-shadow: 0 0 30px rgba(229,9,20,.8); }
+  .player { width:90%; max-width:1000px; margin:0 auto 60px; border-radius:12px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,.8); }
+  video { width:100%; display:block; }
+  .rows { padding:0 4%; }
+  .row { margin-bottom:50px; }
+  h2 { font-size:2rem; margin-bottom:15px; margin-left:10px; }
+  .slider { display:flex; overflow-x:auto; scroll-behavior:smooth; gap:8px; padding:10px 0; }
+  .slider::-webkit-scrollbar { display:none; }
+  .item { min-width:280px; border-radius:8px; overflow:hidden; transition:.4s; cursor:pointer; }
+  .item:hover { transform:scale(1.15); z-index:5; }
+  .item img { width:100%; display:block; }
+  .item:nth-child(1) img { content:url('https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMUBjY.jpg'); } /* 데드풀 */
+  .item:nth-child(2) img { content:url('https://image.tmdb.org/t/p/w500/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg'); } /* 아바타 */
+  .item:nth-child(3) img { content:url('https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg'); } /* 라라랜드 */
+  .item:nth-child(4) img { content:url('https://image.tmdb.org/t/p/w500/9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg'); } /* 탑건 */
+  .item:nth-child(5) img { content:url('https://image.tmdb.org/t/p/w500/1g0dhYtq4irTY1GPZsWaQ2uhDqo.jpg'); } /* 기생충 */
+  .footer { text-align:center; padding:50px; opacity:0.7; font-size:0.9rem; }
+</style>
+</head>
+<body>
+
+<div class="header" id="header">
+  <div class="logo">NE<span>FLIX</span> mini</div>
+</div>
+
+<div class="main">
+  <h1 class="title">오늘 저녁은<br>데드풀 & 울버린 어때?</h1>
+  <div class="player">
+    <video controls autoplay loop poster="https://image.tmdb.org/t/p/original/8cdWjvZQUExUUTzyp4t6EDMUBjY.jpg">
+      <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
+      브라우저가 비디오를 지원하지 않습니다.
+    </video>
+  </div>
+</div>
+
+<div class="rows">
+  <div class="row">
+    <h2>지금 뜨는 콘텐츠</h2>
+    <div class="slider" id="row1">
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+    </div>
+  </div>
+  <div class="row">
+    <h2>한국 영화는 못 참지</h2>
+    <div class="slider">
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+      <div class="item"><img></div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Made with ♡ by 대학생 개발자 | 2025
+</div>
+
+<script>
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 100);
+});
+</script>
+</body>
+</html>
